@@ -1,0 +1,17 @@
+{
+  "name": "pex-challenge",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjandoc/pex-challenge.git"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.0"
+  },
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12"
+  }
+}
