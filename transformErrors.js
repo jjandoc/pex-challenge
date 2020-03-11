@@ -1,6 +1,16 @@
 const { Map, List } = require('immutable');
 
 /**
+ * Takes a List of strings and joins them into a single string with punctuation,
+ * removing any duplicate messages.
+ * @param {List<string>} messageList 
+ * @return {string}
+ */
+function concatenateMessages(messageList) {
+  return messageList.toSet().map(message => `${message}.`).join(' ');
+}
+
+/**
  * Takes either an Immutable List or Map collection and recursively reduces the
  * result to a List of strings.
  * @param {List|Map} listOrMap 
@@ -11,16 +21,6 @@ function flattenValue(listOrMap) {
     .toList()
     .map(item => Map.isMap(item) ? flattenValue(item.toList()) : item)
     .flatten();
-}
-
-/**
- * Takes a List of strings and joins them into a single string with punctuation,
- * removing any duplicate messages.
- * @param {List<string>} messageList 
- * @return {string}
- */
-function concatenateMessages(messageList) {
-  return messageList.toSet().map(message => `${message}.`).join(' ');
 }
 
 /**
